@@ -69,7 +69,7 @@
 					<execution>
 						<phase>package</phase>
 						<configuration>
-							<webappDirectory>target/${env}/deploy</webappDirectory>
+							<webappDirectory>target/deploy</webappDirectory>
 							<archiveClasses>true</archiveClasses>
 						</configuration>
 						<goals>
