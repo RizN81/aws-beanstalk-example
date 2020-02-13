@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rkcloud.app</groupId>
 	<artifactId>aws-elastic-beanstalk-example</artifactId>
@@ -49,19 +49,35 @@
 
 	<build>
 		<plugins>
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-war-plugin</artifactId> -->
+			<!-- <version>3.2.3</version> -->
+			<!-- <configuration> -->
+			<!-- <webappDirectory>taget/deploy</webappDirectory> -->
+			<!-- <archiveClasses>true</archiveClasses> -->
+			<!-- </configuration> -->
+			<!-- <phase>prepare-package</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>exploded</goal> -->
+			<!-- </goals> -->
+			<!-- </plugin> -->
 			<plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-war-plugin</artifactId>
-		        <version>3.2.3</version>
-		        <configuration>
-		          <webappDirectory>taget/deploy</webappDirectory>
-		          <archiveClasses>true</archiveClasses>
-		        </configuration>
-		        <phase>prepare-package</phase>
-		        <goals>
-		        	<goal>exploded</goal>
-		        </goals>
-		      </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<webappDirectory>target/${env}/deploy</webappDirectory>
+							<archiveClasses>true</archiveClasses>
+						</configuration>
+						<goals>
+							<goal>exploded</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
