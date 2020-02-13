@@ -50,6 +50,19 @@
 	<build>
 		<plugins>
 			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-war-plugin</artifactId>
+		        <version>3.2.3</version>
+		        <configuration>
+		          <webappDirectory>taget/deploy</webappDirectory>
+		          <archiveClasses>true</archiveClasses>
+		        </configuration>
+		        <phase>prepare-package</phase>
+		        <goals>
+		        	<goal>exploded</goal>
+		        </goals>
+		      </plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>

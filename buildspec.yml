@@ -11,6 +11,6 @@ phases:
     commands:
       - echo "In Post Build Stage"
       - mv target/deploy ./
- artifacts:
+artifacts:
   files:
     - deploy/**/*    
